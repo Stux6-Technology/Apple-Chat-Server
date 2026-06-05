@@ -1,0 +1,484 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys.",
+        "description": "sys.",
+        "detail": "sys.",
+        "documentation": {}
+    },
+    {
+        "label": "readPlist",
+        "importPath": "plistlib",
+        "description": "plistlib",
+        "isExtraImport": true,
+        "detail": "plistlib",
+        "documentation": {}
+    },
+    {
+        "label": "writePlist",
+        "importPath": "plistlib",
+        "description": "plistlib",
+        "isExtraImport": true,
+        "detail": "plistlib",
+        "documentation": {}
+    },
+    {
+        "label": "protocol",
+        "importPath": "twisted.internet",
+        "description": "twisted.internet",
+        "isExtraImport": true,
+        "detail": "twisted.internet",
+        "documentation": {}
+    },
+    {
+        "label": "reactor",
+        "importPath": "twisted.internet",
+        "description": "twisted.internet",
+        "isExtraImport": true,
+        "detail": "twisted.internet",
+        "documentation": {}
+    },
+    {
+        "label": "protocol",
+        "importPath": "twisted.internet",
+        "description": "twisted.internet",
+        "isExtraImport": true,
+        "detail": "twisted.internet",
+        "documentation": {}
+    },
+    {
+        "label": "reactor",
+        "importPath": "twisted.internet",
+        "description": "twisted.internet",
+        "isExtraImport": true,
+        "detail": "twisted.internet",
+        "documentation": {}
+    },
+    {
+        "label": "usage",
+        "importPath": "twisted.python",
+        "description": "twisted.python",
+        "isExtraImport": true,
+        "detail": "twisted.python",
+        "documentation": {}
+    },
+    {
+        "label": "log",
+        "importPath": "twisted.python",
+        "description": "twisted.python",
+        "isExtraImport": true,
+        "detail": "twisted.python",
+        "documentation": {}
+    },
+    {
+        "label": "component",
+        "importPath": "twisted.words.protocols.jabber",
+        "description": "twisted.words.protocols.jabber",
+        "isExtraImport": true,
+        "detail": "twisted.words.protocols.jabber",
+        "documentation": {}
+    },
+    {
+        "label": "jid",
+        "importPath": "twisted.words.protocols.jabber",
+        "description": "twisted.words.protocols.jabber",
+        "isExtraImport": true,
+        "detail": "twisted.words.protocols.jabber",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "twisted.application",
+        "description": "twisted.application",
+        "isExtraImport": true,
+        "detail": "twisted.application",
+        "documentation": {}
+    },
+    {
+        "label": "service",
+        "importPath": "twisted.application",
+        "description": "twisted.application",
+        "isExtraImport": true,
+        "detail": "twisted.application",
+        "documentation": {}
+    },
+    {
+        "label": "internet",
+        "importPath": "twisted.application",
+        "description": "twisted.application",
+        "isExtraImport": true,
+        "detail": "twisted.application",
+        "documentation": {}
+    },
+    {
+        "label": "socks5",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socks5",
+        "description": "socks5",
+        "detail": "socks5",
+        "documentation": {}
+    },
+    {
+        "label": "struct",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "struct",
+        "description": "struct",
+        "detail": "struct",
+        "documentation": {}
+    },
+    {
+        "label": "JEP65Proxy",
+        "kind": 6,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "class JEP65Proxy(socks5.SOCKSv5):\n    def __init__(self, service):\n        socks5.SOCKSv5.__init__(self)\n        self.service = service\n        self.supportedAuthMechs = [socks5.AUTHMECH_ANON]\n        self.supportedAddrs = [socks5.ADDR_DOMAINNAME]\n        self.enabledCommands = [socks5.CMD_CONNECT]\n        self.addr = \"\"\n    def stopProducing(self):\n        self.transport.loseConnection()",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "Service",
+        "kind": 6,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "class Service(component.Service, protocol.Factory):\n    def __init__(self, config):\n        self.jid = config[\"jid\"]\n        self.activeAddresses = []\n        self.listeners = None\n        self.pendingConns = {}\n        self.activeConns = {}\n    def buildProtocol(self, addr):\n        return JEP65Proxy(self)\n    def componentConnected(self, xmlstream):",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "hashSID",
+        "kind": 2,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "def hashSID(sid, initiator, target):\n    import sha\n    return sha.new(\"%s%s%s\" % (sid, initiator, target)).hexdigest()\nclass JEP65Proxy(socks5.SOCKSv5):\n    def __init__(self, service):\n        socks5.SOCKSv5.__init__(self)\n        self.service = service\n        self.supportedAuthMechs = [socks5.AUTHMECH_ANON]\n        self.supportedAddrs = [socks5.ADDR_DOMAINNAME]\n        self.enabledCommands = [socks5.CMD_CONNECT]",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "makeService",
+        "kind": 2,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "def makeService(config):\n    # Check for parameters...\n    try:\n        int(config[\"rport\"], 10)\n    except ValueError:\n        print \"Invalid router port (--rport) provided.\"\n        sys.exit(-1)\n    if config[\"secret\"] == None:\n        print \"Component secret (--secret) is a REQUIRED parameter. Configuration aborted.\"\n        sys.exit(-1)",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PYTHONHASHSEED\"]",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "os.environ[\"PYTHONHASHSEED\"] = \"random\"\nsys.path.append('/Applications/Server.app/Contents/ServerRoot/usr/share/proxy65');\nfrom plistlib import readPlist, writePlist\nfrom twisted.internet import protocol, reactor\nfrom twisted.python import usage, log\nfrom twisted.words.protocols.jabber import component,jid\nfrom twisted.application import app, service, internet\ntry:\n    from twisted.internet.endpoints import _parse; from twisted.application import strports; strports._parse = _parse\nexcept ImportError:",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "configPath",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "configPath = '/Library/Server/Messages/Config/com.apple.Proxy65.plist';\nconfig = {'jid':'',\n         'secret':'',\n         'rhost':'',\n         'rport':'',\n         'proxyips':''}\nJEP65_GET      = \"/iq[@type='get']/query[@xmlns='http://jabber.org/protocol/bytestreams']\"\nJEP65_ACTIVATE = \"/iq[@type='set']/query[@xmlns='http://jabber.org/protocol/bytestreams']/activate\"\nDISCO_GET      = \"/iq[@type='get']/query[@xmlns='http://jabber.org/protocol/disco#info']\"\ndef hashSID(sid, initiator, target):",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "config = {'jid':'',\n         'secret':'',\n         'rhost':'',\n         'rport':'',\n         'proxyips':''}\nJEP65_GET      = \"/iq[@type='get']/query[@xmlns='http://jabber.org/protocol/bytestreams']\"\nJEP65_ACTIVATE = \"/iq[@type='set']/query[@xmlns='http://jabber.org/protocol/bytestreams']/activate\"\nDISCO_GET      = \"/iq[@type='get']/query[@xmlns='http://jabber.org/protocol/disco#info']\"\ndef hashSID(sid, initiator, target):\n    import sha",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "JEP65_ACTIVATE",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "JEP65_ACTIVATE = \"/iq[@type='set']/query[@xmlns='http://jabber.org/protocol/bytestreams']/activate\"\nDISCO_GET      = \"/iq[@type='get']/query[@xmlns='http://jabber.org/protocol/disco#info']\"\ndef hashSID(sid, initiator, target):\n    import sha\n    return sha.new(\"%s%s%s\" % (sid, initiator, target)).hexdigest()\nclass JEP65Proxy(socks5.SOCKSv5):\n    def __init__(self, service):\n        socks5.SOCKSv5.__init__(self)\n        self.service = service\n        self.supportedAuthMechs = [socks5.AUTHMECH_ANON]",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "application = service.Application(\"Proxy65\")\ntry:\n    configFromFile = readPlist(configPath)\nexcept:\n    print(\"Failed to find configuration file: %s\" % (configPath))\n    sys.exit(1)\nconfig.update(configFromFile)\n# attach the service to its parent application\nservice = makeService(config)\nservice.setServiceParent(application)",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "service",
+        "kind": 5,
+        "importPath": "modules.filetransfer.proxy65",
+        "description": "modules.filetransfer.proxy65",
+        "peekOfCode": "service = makeService(config)\nservice.setServiceParent(application)",
+        "detail": "modules.filetransfer.proxy65",
+        "documentation": {}
+    },
+    {
+        "label": "SOCKSv5Outgoing",
+        "kind": 6,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "class SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):\n        _invalid_, hostname, port = self.transport.getPeer()\n        self.peersock.connectCompleted(hostname, port)\n    def connectionLost(self, reason):\n        self.peersock.transport.loseConnection()\n        self.peersock.peersock = None",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "SOCKSv5",
+        "kind": 6,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "class SOCKSv5(protocol.Protocol):\n    def __init__(self):\n        self.state = STATE_INITIAL\n        self.buf = \"\"\n        self.supportedAuthMechs = [ AUTHMECH_USERPASS ]\n        self.supportedAddrs = [ ADDR_IPV4, ADDR_DOMAINNAME ]\n        self.enabledCommands = [ CMD_CONNECT, CMD_BIND ]\n        self.peersock = None\n        self.addressType = 0\n        self.requestType = 0",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PYTHONHASHSEED\"]",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "os.environ[\"PYTHONHASHSEED\"] = \"random\"\nSTATE_INITIAL = 0\nSTATE_AUTH    = 1\nSTATE_REQUEST = 2\nSTATE_READY   = 3\nSTATE_AUTH_USERPASS = 4\nSTATE_LAST    = 5\nSTATE_CONNECT_PENDING = STATE_LAST + 1\nSOCKS5_VER = 0x05\nADDR_IPV4 = 0x01",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "STATE_INITIAL",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "STATE_INITIAL = 0\nSTATE_AUTH    = 1\nSTATE_REQUEST = 2\nSTATE_READY   = 3\nSTATE_AUTH_USERPASS = 4\nSTATE_LAST    = 5\nSTATE_CONNECT_PENDING = STATE_LAST + 1\nSOCKS5_VER = 0x05\nADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "STATE_REQUEST",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "STATE_REQUEST = 2\nSTATE_READY   = 3\nSTATE_AUTH_USERPASS = 4\nSTATE_LAST    = 5\nSTATE_CONNECT_PENDING = STATE_LAST + 1\nSOCKS5_VER = 0x05\nADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "STATE_AUTH_USERPASS",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "STATE_AUTH_USERPASS = 4\nSTATE_LAST    = 5\nSTATE_CONNECT_PENDING = STATE_LAST + 1\nSOCKS5_VER = 0x05\nADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "STATE_CONNECT_PENDING",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "STATE_CONNECT_PENDING = STATE_LAST + 1\nSOCKS5_VER = 0x05\nADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "SOCKS5_VER",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "SOCKS5_VER = 0x05\nADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "ADDR_IPV4",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "ADDR_IPV4 = 0x01\nADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "ADDR_DOMAINNAME",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "ADDR_DOMAINNAME = 0x03\nADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "ADDR_IPV6",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "ADDR_IPV6 = 0x04\nCMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "CMD_CONNECT",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "CMD_CONNECT = 0x01\nCMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "CMD_BIND",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "CMD_BIND = 0x02\nCMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "CMD_UDPASSOC",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "CMD_UDPASSOC = 0x03\nAUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHMECH_ANON",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "AUTHMECH_ANON = 0x00\nAUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHMECH_USERPASS",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "AUTHMECH_USERPASS = 0x02\nAUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHMECH_INVALID",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "AUTHMECH_INVALID = 0xFF\nREPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_SUCCESS",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_SUCCESS = 0x00\nREPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_GENERAL_FAILUR",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_GENERAL_FAILUR = 0x01\nREPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_CONN_NOT_ALLOWED",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_CONN_NOT_ALLOWED = 0x02\nREPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_NETWORK_UNREACHABLE",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_NETWORK_UNREACHABLE = 0x03\nREPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_HOST_UNREACHABLE",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_HOST_UNREACHABLE = 0x04\nREPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_CONN_REFUSED",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_CONN_REFUSED = 0x05\nREPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):\n        _invalid_, hostname, port = self.transport.getPeer()",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_TTL_EXPIRED",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_TTL_EXPIRED = 0x06\nREPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):\n        _invalid_, hostname, port = self.transport.getPeer()\n        self.peersock.connectCompleted(hostname, port)",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_CMD_NOT_SUPPORTED",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_CMD_NOT_SUPPORTED = 0x07\nREPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):\n        _invalid_, hostname, port = self.transport.getPeer()\n        self.peersock.connectCompleted(hostname, port)\n    def connectionLost(self, reason):",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "REPLY_ADDR_NOT_SUPPORTED",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "REPLY_ADDR_NOT_SUPPORTED = 0x08\nclass SOCKSv5Outgoing(protocol.Protocol):\n    def __init__(self, peersock):\n        self.peersock = peersock\n        self.peersock.peersock = self\n    def connectionMade(self):\n        _invalid_, hostname, port = self.transport.getPeer()\n        self.peersock.connectCompleted(hostname, port)\n    def connectionLost(self, reason):\n        self.peersock.transport.loseConnection()",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "factory",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "factory = protocol.Factory()\nfactory.protocol = SOCKSv5\nif __name__ == \"__main__\":\n    reactor.listenTCP(8888, factory)\n    reactor.run()",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    },
+    {
+        "label": "factory.protocol",
+        "kind": 5,
+        "importPath": "modules.filetransfer.socks5",
+        "description": "modules.filetransfer.socks5",
+        "peekOfCode": "factory.protocol = SOCKSv5\nif __name__ == \"__main__\":\n    reactor.listenTCP(8888, factory)\n    reactor.run()",
+        "detail": "modules.filetransfer.socks5",
+        "documentation": {}
+    }
+]
